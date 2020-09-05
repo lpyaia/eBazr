@@ -1,0 +1,20 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/containers/Basket.Api/bin/Debug/netcoreapp3.1
+/containers/Basket.Api/obj
+/containers/Basket.Api/Basket.Api.csproj.user
+/dotnet-packages/basket/src/Basket/bin/Debug/netcoreapp3.1
+/dotnet-packages/basket/src/Basket/obj
+/dotnet-packages/basket/test/Basket.Tests/bin/Debug/netcoreapp3.1
+/dotnet-packages/basket/test/Basket.Tests/obj
+/dotnet-packages/common/src/Common/bin/Debug/netcoreapp3.1
+/dotnet-packages/common/src/Common/obj
+/dotnet-solutions/eBazr.ApiGateway/.vs/eBazr.ApiGateway/v16/.suo
+/dotnet-solutions/eBazr.Basket/.vs/eBazr.Basket
+/dotnet-solutions/eBazr.Catalog/.vs/eBazr.Catalog/v16/.suo
+/dotnet-solutions/eBazr.Common/.vs/eBazr.Common
+/dotnet-solutions/eBazr.Order/.vs/eBazr.Order/v16
+/dotnet-solutions/eBazr.User/.vs/eBazr.User/v16
+/dotnet-solutions/eBazr.WebApp/.vs/eBazr.WebApp/v16

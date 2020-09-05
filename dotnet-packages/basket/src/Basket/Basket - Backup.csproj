@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Core\Extensions\" />
+    <Folder Include="Core\Helpers\" />
+    <Folder Include="Core\Integrations\" />
+    <Folder Include="Domain\CommandSide\CommandHandlers\" />
+    <Folder Include="Domain\CommandSide\Commands\" />
+    <Folder Include="Domain\Common\" />
+    <Folder Include="Domain\Entities\" />
+    <Folder Include="Domain\Enums\" />
+    <Folder Include="Domain\Events\" />
+    <Folder Include="Domain\Extensions\" />
+    <Folder Include="Domain\Interfaces\Context\" />
+    <Folder Include="Domain\Interfaces\Services\" />
+    <Folder Include="Domain\Model\" />
+    <Folder Include="Domain\Services\" />
+    <Folder Include="Domain\QuerySide\Dtos\" />
+    <Folder Include="Domain\QuerySide\QueryHandlers\" />
+    <Folder Include="Domain\QuerySide\Queries\" />
+    <Folder Include="Infra\Mappings\" />
+  </ItemGroup>
+
+</Project>
