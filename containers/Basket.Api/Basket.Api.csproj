@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\dotnet-packages\basket\src\Basket.Infra\Basket.Infra.csproj" />
     <ProjectReference Include="..\..\dotnet-packages\basket\src\Basket\Basket.csproj" />
     <ProjectReference Include="..\..\dotnet-packages\common\src\Common\Common.csproj" />
   </ItemGroup>

@@ -1,10 +1,9 @@
-using Basket.Domain.Interfaces.Context;
-using Basket.Domain.Interfaces.Repositories;
-using Basket.Infra.Data;
-using Basket.Infra.Repositories;
-using Common.Core.Bus;
-using Common.Core.Bus.RabbitMq;
-using Common.Core.Common;
+using Catalog.CrossCutting;
+using Catalog.Domain.Interfaces.Context;
+using Catalog.Domain.Interfaces.Repositories;
+using Catalog.Domain.Interfaces.Settings;
+using Catalog.Infra.Data;
+using Catalog.Infra.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -12,9 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
-using StackExchange.Redis;
 
-namespace Basket.Api
+namespace Catalog.Api
 {
     public class Startup
     {
@@ -30,41 +28,31 @@ namespace Basket.Api
         {
             services.AddControllers();
 
-            #region Redis Dependencies
+            #region Configuration Dependencies
 
-            services.AddSingleton<ConnectionMultiplexer>(sp =>
-            {
-                var configuration = ConfigurationOptions.Parse(Configuration.GetConnectionString("Redis"), true);
-                return ConnectionMultiplexer.Connect(configuration);
-            });
+            services.Configure<CatalogDatabaseSettings>(Configuration.GetSection(nameof(CatalogDatabaseSettings)));
+
+            services.AddSingleton<ICatalogDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<CatalogDatabaseSettings>>().Value);
 
             #endregion
 
             #region Project Dependencies
 
-            services.AddTransient<IBasketContext, BasketContext>();
-            services.AddTransient<IBasketRepository, BasketRepository>();
+            services.AddTransient<ICatalogContext, CatalogContext>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+
             #endregion
 
             #region Swagger Dependencies
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Basket API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Catalog API", Version = "v1" });
             });
 
             #endregion
 
-            #region RabbitMQ Dependencies
-
-            services.Configure<RabbitSettings>(Configuration.GetSection(nameof(RabbitSettings)));
-
-            services.AddScoped<IBusClient, BusClient>(x =>
-            {
-                var settings = x.GetRequiredService<IOptionsMonitor<RabbitSettings>>().CurrentValue;
-                return new BusClient(settings.Url);
-            });
-            #endregion            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -87,7 +75,7 @@ namespace Basket.Api
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Basket API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Catalog API V1");
             });
         }
     }

@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.7" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.7" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.10.4" />
+    <PackageReference Include="MediatR" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Core\Common\" />
+    <Folder Include="Core\Extensions\" />
+    <Folder Include="Core\Helpers\" />
+    <Folder Include="Core\Integration\" />
+    <Folder Include="Domain\CommandSide\CommandHandlers\" />
+    <Folder Include="Domain\CommandSide\Commands\" />
+    <Folder Include="Domain\Common\Mappings\" />
+    <Folder Include="Domain\Enum\" />
+    <Folder Include="Domain\Events\" />
+    <Folder Include="Domain\Extensions\" />
+    <Folder Include="Domain\Interfaces\Services\" />
+    <Folder Include="Domain\Model\" />
+    <Folder Include="Domain\QuerySide\Queries\" />
+    <Folder Include="Domain\QuerySide\QueryHandlers\" />
+    <Folder Include="Domain\Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\common\src\Common\Common.csproj" />
+  </ItemGroup>
+
+</Project>

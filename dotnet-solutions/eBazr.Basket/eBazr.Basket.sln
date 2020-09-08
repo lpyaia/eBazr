@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket.Tests", "..\..\dotne
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "..\..\dotnet-packages\common\src\Common\Common.csproj", "{2FC1F9C1-9AD8-499D-A0A8-CD4294F21A51}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.Infra", "..\..\dotnet-packages\basket\src\Basket.Infra\Basket.Infra.csproj", "{C1B3F5BA-035F-480F-B54A-3EA7B211D166}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{2FC1F9C1-9AD8-499D-A0A8-CD4294F21A51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FC1F9C1-9AD8-499D-A0A8-CD4294F21A51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FC1F9C1-9AD8-499D-A0A8-CD4294F21A51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1B3F5BA-035F-480F-B54A-3EA7B211D166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1B3F5BA-035F-480F-B54A-3EA7B211D166}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1B3F5BA-035F-480F-B54A-3EA7B211D166}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1B3F5BA-035F-480F-B54A-3EA7B211D166}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

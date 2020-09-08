@@ -18,3 +18,16 @@
 /dotnet-solutions/eBazr.Order/.vs/eBazr.Order/v16
 /dotnet-solutions/eBazr.User/.vs/eBazr.User/v16
 /dotnet-solutions/eBazr.WebApp/.vs/eBazr.WebApp/v16
+/containers/Catalog.Api/bin/Debug/netcoreapp3.1
+/containers/Catalog.Api/obj
+/containers/Catalog.Api/Properties
+/dotnet-packages/basket/src/Basket.Infra/bin/Debug/netcoreapp3.1
+/dotnet-packages/basket/src/Basket.Infra/obj
+/dotnet-packages/catalog/src/Catalog/bin/Debug/netcoreapp3.1
+/dotnet-packages/catalog/src/Catalog/obj
+/dotnet-packages/catalog/src/Catalog.Infra/bin/Debug/netcoreapp3.1
+/dotnet-packages/catalog/src/Catalog.Infra/obj
+/dotnet-packages/catalog/test/Catalog.Tests/bin/Debug/netcoreapp3.1
+/dotnet-packages/catalog/test/Catalog.Tests/obj
+/dotnet-solutions/eBazr.Catalog/.vs/eBazr.Catalog/v16/TestStore/0
+/containers/Catalog.Api/Catalog.Api.csproj.user
