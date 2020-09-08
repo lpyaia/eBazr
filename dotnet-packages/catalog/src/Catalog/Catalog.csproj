@@ -18,16 +18,12 @@
     <Folder Include="Core\Extensions\" />
     <Folder Include="Core\Helpers\" />
     <Folder Include="Core\Integration\" />
-    <Folder Include="Domain\CommandSide\CommandHandlers\" />
-    <Folder Include="Domain\CommandSide\Commands\" />
     <Folder Include="Domain\Common\Mappings\" />
     <Folder Include="Domain\Enum\" />
     <Folder Include="Domain\Events\" />
     <Folder Include="Domain\Extensions\" />
     <Folder Include="Domain\Interfaces\Services\" />
     <Folder Include="Domain\Model\" />
-    <Folder Include="Domain\QuerySide\Queries\" />
-    <Folder Include="Domain\QuerySide\QueryHandlers\" />
     <Folder Include="Domain\Services\" />
   </ItemGroup>
 

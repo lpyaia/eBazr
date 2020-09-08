@@ -1,8 +1,9 @@
-﻿using Catalog.Domain.Entities;
-using Catalog.Domain.Interfaces.Repositories;
+﻿using Catalog.Domain.CommandSide.Commands;
+using Catalog.Domain.Entities;
+using Catalog.Domain.QuerySide.Queries;
+using Common.Core.Logging;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
@@ -13,20 +14,18 @@ namespace Catalog.Api.Controllers
     [ApiController]
     public class CatalogController : ControllerBase
     {
-        private readonly IProductRepository _repository;
-        private readonly ILogger<CatalogController> _logger;
+        private readonly IMediator _mediator;
 
-        public CatalogController(IProductRepository repository, ILogger<CatalogController> logger)
+        public CatalogController(IMediator mediator)
         {
-            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _mediator = mediator;
         }
 
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
-            var products = await _repository.GetProducts();
+            var products = await _mediator.Send(new GetProductsQuery());
             return Ok(products);
         }
 
@@ -35,11 +34,12 @@ namespace Catalog.Api.Controllers
         [ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<Product>> GetProduct(string id)
         {
-            var product = await _repository.GetProduct(id);
+
+            var product = await _mediator.Send(new GetProductQuery { Id = id });
 
             if (product == null)
             {
-                _logger.LogError($"Product with id: {id}, hasn't been found in database.");
+                LogHelper.Error($"Product with id: {id}, hasn't been found in database.");
                 return NotFound();
             }
 
@@ -51,7 +51,7 @@ namespace Catalog.Api.Controllers
         [ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Product>>> GetProductByCategory(string category)
         {
-            var product = await _repository.GetProductByCategory(category);
+            var product = await _mediator.Send(new GetProductByCategory { Category = category });
             return Ok(product);
         }
 
@@ -59,7 +59,7 @@ namespace Catalog.Api.Controllers
         [ProducesResponseType(typeof(Product), (int)HttpStatusCode.Created)]
         public async Task<ActionResult<Product>> CreateProduct([FromBody] Product product)
         {
-            await _repository.Create(product);
+            await _mediator.Send(new CreateProductCommand { Product = product });
 
             return CreatedAtRoute("GetProduct", new { id = product.Id }, product);
         }
@@ -68,14 +68,14 @@ namespace Catalog.Api.Controllers
         [ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> UpdateProduct([FromBody] Product value)
         {
-            return Ok(await _repository.Update(value));
+            return Ok(await _mediator.Send(new UpdateProductCommand { Product = value }));
         }
 
         [HttpDelete("{id:length(24)}")]
         [ProducesResponseType(typeof(void), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> DeleteProductById(string id)
         {
-            return Ok(await _repository.Delete(id));
+            return Ok(await _mediator.Send(new DeleteProductByIdCommand { Id = id}));
         }
     }
 }
