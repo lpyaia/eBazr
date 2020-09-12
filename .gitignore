@@ -48,3 +48,8 @@
 *.user
 /containers/Web.App/bin/Debug/netcoreapp3.1
 /containers/Web.App/obj
+/containers/Api.Gateway/bin/Debug/netcoreapp3.1
+/containers/Api.Gateway/obj
+/containers/Api.Gateway/Properties
+*.config
+*.v2
