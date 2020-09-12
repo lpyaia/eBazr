@@ -2,7 +2,7 @@
 using Basket.Domain.Entities;
 using Basket.Domain.Events;
 
-namespace Basket.Domain.Common.Mappings
+namespace Basket.Domain.Mappings
 {
     public class BasketMapping : Profile
     {

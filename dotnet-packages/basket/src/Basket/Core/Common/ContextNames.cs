@@ -6,10 +6,5 @@
         {
             public static string BasketCheckout => @"Basket\Checkout";
         }
-
-        public static class Queues
-        {
-            public static string BasketCheckout => @"Basket\Checkout";
-        }
     }
 }

@@ -50,9 +50,7 @@ namespace Basket.Domain.CommandSide.CommandHandlers
             var eventMessage = _mapper.Map<BasketCheckoutEvent>(request.BasketCheckout);
             eventMessage.TotalPrice = basket.TotalPrice;
 
-            await _publisher.PublishAsync(ContextNames.Exchange.BasketCheckout,
-                ContextNames.Queues.BasketCheckout,
-                eventMessage);
+            await _publisher.PublishAsync(ContextNames.Exchange.BasketCheckout, eventMessage);
 
             return true;
         }
