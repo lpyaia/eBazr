@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Folder Include="Core\Extensions\" />
+    <Folder Include="Core\Helpers\" />
+    <Folder Include="Core\Integration\" />
+    <Folder Include="Domain\Common\Mappings\" />
+    <Folder Include="Domain\Enum\" />
+    <Folder Include="Domain\Extensions\" />
+    <Folder Include="Domain\Interfaces\Services\" />
+    <Folder Include="Domain\Interfaces\Settings\" />
+    <Folder Include="Domain\Interfaces\Context\" />
+    <Folder Include="Domain\Model\" />
+    <Folder Include="Domain\Services\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.7" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.7" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="MediatR" Version="8.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\common\src\Common\Common.csproj" />
+  </ItemGroup>
+
+</Project>
