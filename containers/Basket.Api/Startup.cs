@@ -1,3 +1,4 @@
+using Basket.CrossCutting;
 using Basket.Domain.Interfaces.Context;
 using Basket.Domain.Interfaces.Repositories;
 using Basket.Infra.Data;
@@ -5,6 +6,7 @@ using Basket.Infra.Repositories;
 using Common.Core.Bus;
 using Common.Core.Bus.RabbitMq;
 using Common.Core.Common;
+using Common.Core.Config;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -28,7 +30,12 @@ namespace Basket.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            BootStrapper.RegisterServices(services, Configuration);
+            #region Rabbit
+            services.AddSingleton<IBusPublisher, BusPublisher>();
+            services.AddSingleton<IBusConnection>(x => 
+                new BusConnection(Configuration.GetConnectionString(ConnectionStringNames.Rabbit)));
+            #endregion
 
             #region Redis Dependencies
 
@@ -64,7 +71,10 @@ namespace Basket.Api
                 var settings = x.GetRequiredService<IOptionsMonitor<RabbitSettings>>().CurrentValue;
                 return new BusClient(settings.Url);
             });
-            #endregion            
+            #endregion     
+
+
+            services.AddControllers();       
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

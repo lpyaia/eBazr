@@ -1,8 +1,8 @@
-﻿using Common.Core.Common;
+﻿using AutoMapper;
+using Common.Core.Common;
+using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MediatR;
-using AutoMapper;
 
 namespace Basket.CrossCutting
 {
