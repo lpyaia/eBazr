@@ -15,9 +15,7 @@ namespace Order.Infra.Data
 
             try
             {
-                // INFO: Run this if using a real database. Used to automaticly migrate docker image of sql server db.
                 orderContext.Database.Migrate();
-                //orderContext.Database.EnsureCreated();
 
                 if (!orderContext.Orders.Any())
                 {

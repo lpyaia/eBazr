@@ -11,7 +11,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\dotnet-packages\common\src\Common\Common.csproj" />
+    <ProjectReference Include="..\..\dotnet-packages\order\src\Order.Infra\Order.Infra.csproj" />
     <ProjectReference Include="..\..\dotnet-packages\order\src\Order\Order.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
