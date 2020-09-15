@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Common.Core.Logging;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace Order.Infra.Data
 {
     public class OrderContextSeed
     {
-        public static async Task SeedAsync(OrderContext orderContext, ILoggerFactory loggerFactory, int? retry = 0)
+        public static async Task SeedAsync(OrderContext orderContext, int? retry = 0)
         {
             int retryForAvailability = retry.Value;
 
@@ -28,9 +29,8 @@ namespace Order.Infra.Data
                 if (retryForAvailability < 5)
                 {
                     retryForAvailability++;
-                    var log = loggerFactory.CreateLogger<OrderContextSeed>();
-                    log.LogError(exception.Message);
-                    await SeedAsync(orderContext, loggerFactory, retryForAvailability);
+                    LogHelper.Error(exception.Message);
+                    await SeedAsync(orderContext, retryForAvailability);
                 }
                 throw;
             }

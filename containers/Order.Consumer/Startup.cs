@@ -10,7 +10,6 @@ using Order.CrossCutting;
 using Order.Domain.Interfaces.Repositories;
 using Order.Infra.Data;
 using Order.Infra.Repository;
-using Order.Infra.Repository.Base;
 
 namespace Order.Consumer
 {
@@ -30,13 +29,10 @@ namespace Order.Consumer
             #region Project Dependencies
 
             // Add Infrastructure Layer
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            services.AddScoped(typeof(IOrderRepository), typeof(OrderRepository));
-            services.AddTransient<IOrderRepository, OrderRepository>(); // we made transient this in order to resolve in mediatR when consuming Rabbit
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<BasketCheckoutConsumer>();
 
             #endregion
-
-            services.AddScoped<BasketCheckoutConsumer>();
 
             services.Configure<RabbitSettings>(x => config.GetSection(nameof(RabbitSettings)));
 

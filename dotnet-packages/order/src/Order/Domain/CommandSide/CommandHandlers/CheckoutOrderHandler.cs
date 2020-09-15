@@ -22,6 +22,7 @@ namespace Order.Domain.CommandSide.CommandHandlers
         public async Task<OrderResponse> Handle(CheckoutOrderCommand request, CancellationToken cancellationToken)
         {
             var orderEntity = OrderMapper.Mapper.Map<Entity.Order>(request);
+
             if (orderEntity == null)
                 throw new ApplicationException($"Entity could not be mapped.");
 

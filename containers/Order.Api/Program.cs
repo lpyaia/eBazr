@@ -33,7 +33,7 @@ namespace Order.Api
                 try
                 {
                     var aspnetRunContext = services.GetRequiredService<OrderContext>();
-                    OrderContextSeed.SeedAsync(aspnetRunContext, loggerFactory).Wait();
+                    OrderContextSeed.SeedAsync(aspnetRunContext).Wait();
                 }
                 catch (Exception exception)
                 {
