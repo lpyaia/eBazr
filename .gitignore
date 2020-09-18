@@ -53,3 +53,4 @@
 /containers/Api.Gateway/Properties
 *.config
 *.v2
+/.vs

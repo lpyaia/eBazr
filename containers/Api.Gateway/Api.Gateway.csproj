@@ -4,7 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <DockerComposeProjectPath>..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileContext>..\..\..</DockerfileContext>
+    <DockerfileContext>..\..</DockerfileContext>
+    <UserSecretsId>fc0f3dc0-5a71-479b-bc31-c036f955f898</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

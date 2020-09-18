@@ -80,7 +80,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "orderingapi",
+          "Host": "orderapi",
           "Port": "80"
         }
       ],

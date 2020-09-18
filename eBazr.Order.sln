@@ -5,17 +5,19 @@ VisualStudioVersion = 16.0.30330.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "containers", "containers", "{A564EC9E-5172-417E-8D92-8930BDB1A182}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Api", "..\..\containers\Order.Api\Order.Api.csproj", "{91431891-DA2E-413A-B5DA-F448C12C79A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Api", "containers\Order.Api\Order.Api.csproj", "{91431891-DA2E-413A-B5DA-F448C12C79A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Consumer", "..\..\containers\Order.Consumer\Order.Consumer.csproj", "{8D8C473D-906B-412F-B725-15987CBBB3AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Consumer", "containers\Order.Consumer\Order.Consumer.csproj", "{8D8C473D-906B-412F-B725-15987CBBB3AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order", "..\..\dotnet-packages\order\src\Order\Order.csproj", "{B94DACAC-6F75-4607-955D-92C143A4DA9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order", "dotnet-packages\order\src\Order\Order.csproj", "{B94DACAC-6F75-4607-955D-92C143A4DA9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Infra", "..\..\dotnet-packages\order\src\Order.Infra\Order.Infra.csproj", "{A5AA6875-810C-43D8-B8D7-E764F3821796}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Infra", "dotnet-packages\order\src\Order.Infra\Order.Infra.csproj", "{A5AA6875-810C-43D8-B8D7-E764F3821796}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Tests", "..\..\dotnet-packages\order\tools\Order.Tests\Order.Tests.csproj", "{3D39AEDE-133D-4946-B180-56A09162C310}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Tests", "dotnet-packages\order\tools\Order.Tests\Order.Tests.csproj", "{3D39AEDE-133D-4946-B180-56A09162C310}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "..\..\dotnet-packages\common\src\Common\Common.csproj", "{6A1FBF9C-4AB5-4114-A82E-EAE8A29A5EEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "dotnet-packages\common\src\Common\Common.csproj", "{6A1FBF9C-4AB5-4114-A82E-EAE8A29A5EEB}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F424D715-7A18-4290-AB26-3CAF89E54607}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{6A1FBF9C-4AB5-4114-A82E-EAE8A29A5EEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A1FBF9C-4AB5-4114-A82E-EAE8A29A5EEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A1FBF9C-4AB5-4114-A82E-EAE8A29A5EEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F424D715-7A18-4290-AB26-3CAF89E54607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F424D715-7A18-4290-AB26-3CAF89E54607}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F424D715-7A18-4290-AB26-3CAF89E54607}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F424D715-7A18-4290-AB26-3CAF89E54607}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

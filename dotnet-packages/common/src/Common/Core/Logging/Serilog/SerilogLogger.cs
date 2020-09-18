@@ -89,12 +89,6 @@ namespace Common.Core.Logging.Serilog
 
             configuration.WriteTo.Console(LogEventLevel.Verbose, "[{Timestamp:dd/MM/yyyy HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}");
 
-#if !DEBUG
-            var connectionStringRabbit = config?.GetConnectionString(ConnectionStringNames.Rabbit);
-            if (connectionStringRabbit != null)
-                configuration.WriteTo.RabbitMq(connectionStringRabbit, LogEventLevel.Warning);
-#endif
-
             configuration.Enrich.FromLogContext();
 
             configuration.MinimumLevel.Override("Microsoft", new LoggingLevelSwitch(LogEventLevel.Warning))

@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30330.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket", "..\..\dotnet-packages\basket\src\Basket\Basket.csproj", "{C79EC627-0FDC-4D34-ABB6-E07B9C37D26A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket", "dotnet-packages\basket\src\Basket\Basket.csproj", "{C79EC627-0FDC-4D34-ABB6-E07B9C37D26A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket.Api", "..\..\containers\Basket.Api\Basket.Api.csproj", "{C8D9282F-20D8-4931-B763-969215DB0E8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket.Api", "containers\Basket.Api\Basket.Api.csproj", "{C8D9282F-20D8-4931-B763-969215DB0E8E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "containers", "containers", "{4358A6F8-5099-4FC6-BD09-11D569FB0F68}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket.Tests", "..\..\dotnet-packages\basket\test\Basket.Tests\Basket.Tests.csproj", "{3664803C-10CF-4D78-9E77-F6545C16AE6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket.Tests", "dotnet-packages\basket\test\Basket.Tests\Basket.Tests.csproj", "{3664803C-10CF-4D78-9E77-F6545C16AE6B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "..\..\dotnet-packages\common\src\Common\Common.csproj", "{2FC1F9C1-9AD8-499D-A0A8-CD4294F21A51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "dotnet-packages\common\src\Common\Common.csproj", "{2FC1F9C1-9AD8-499D-A0A8-CD4294F21A51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.Infra", "..\..\dotnet-packages\basket\src\Basket.Infra\Basket.Infra.csproj", "{C1B3F5BA-035F-480F-B54A-3EA7B211D166}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket.Infra", "dotnet-packages\basket\src\Basket.Infra\Basket.Infra.csproj", "{C1B3F5BA-035F-480F-B54A-3EA7B211D166}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{1EECB2FF-D2FC-44CC-B988-F54D72FE7A17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{C1B3F5BA-035F-480F-B54A-3EA7B211D166}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1B3F5BA-035F-480F-B54A-3EA7B211D166}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1B3F5BA-035F-480F-B54A-3EA7B211D166}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EECB2FF-D2FC-44CC-B988-F54D72FE7A17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EECB2FF-D2FC-44CC-B988-F54D72FE7A17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EECB2FF-D2FC-44CC-B988-F54D72FE7A17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EECB2FF-D2FC-44CC-B988-F54D72FE7A17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

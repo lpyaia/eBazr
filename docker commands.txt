@@ -1,0 +1,6 @@
+docker-compose -f docker-compose.yml -f docker-compose.override.ymll up -d
+
+docker rmi image_ids
+docker rm container_ids
+
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=SwN12345678" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-latest

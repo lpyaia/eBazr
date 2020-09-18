@@ -31,6 +31,7 @@ namespace Basket.Api
         public void ConfigureServices(IServiceCollection services)
         {
             BootStrapper.RegisterServices(services, Configuration);
+
             #region Rabbit
             services.AddSingleton<IBusPublisher, BusPublisher>();
             services.AddSingleton<IBusConnection>(x => 

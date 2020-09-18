@@ -1,0 +1,6 @@
+Front: http://localhost:6000
+Front: http://localhost:8003
+Gateway: http://localhost:7000
+Basket Api: http://localhost:8001
+Catalog Api: http://localhost:8000
+Order Api: http://localhost:8002
