@@ -27,8 +27,6 @@ namespace Common.Core.Helpers
         [ExcludeFromCodeCoverage]
         public static void Wait()
         {
-            //if (TestDetector.UnitTestDetector.IsTesting) return;
-
             while (true)
             {
                 Task.Delay(500).Wait();

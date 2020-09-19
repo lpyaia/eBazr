@@ -26,7 +26,7 @@ namespace Common.Core.Bus.Consumer
         private static async Task<int> RunAsync(Action<IServiceCollection, IConfiguration> configure, Action<IConsumerHandler> addConsumers)
         {
             var config = Configuration.GetConfiguration();
-            LogHelper.Logger = new SerilogLogger(config);
+            LogHelper.Logger = new SerilogLogger();
 
             try
             {

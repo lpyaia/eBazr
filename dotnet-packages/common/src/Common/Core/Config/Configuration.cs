@@ -28,7 +28,7 @@ namespace Common.Core.Config
          () => Environment.GetEnvironmentVariable(EnvironmentVariables.RoutePrefix));
 
         public static readonly ValueGetter<string> BaseUri = new ValueGetter<string>(
-         () => Environment.GetEnvironmentVariable(EnvironmentVariables.BaseUri));
+         () => Environment.GetEnvironmentVariable(EnvironmentVariables.EnvBaseUri));
 
         public static IConfigurationRoot GetConfiguration()
         {
@@ -62,7 +62,7 @@ namespace Common.Core.Config
             public const string KvStore = "HB_KVSTORE";
             public const string Application = "HB_APPLICATION";
             public const string RoutePrefix = "HB_ROUTE_PREFIX";
-            public const string BaseUri = "HB_BASE_URI";
+            public const string EnvBaseUri = "HB_BASE_URI";
         }
     }
 }

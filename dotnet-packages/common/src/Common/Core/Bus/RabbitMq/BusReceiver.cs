@@ -86,7 +86,7 @@ namespace Common.Core.Bus.RabbitMq
                         break;
 
                     default:
-                       channel.BasicNack(ea.DeliveryTag, false, true);
+                        channel.BasicNack(ea.DeliveryTag, false, true);
                         break;
                 }
 
@@ -112,9 +112,9 @@ namespace Common.Core.Bus.RabbitMq
             }
             else
             {
-                propsMessage.Headers["ExceptionMessage"] = ex.Message;
-                propsMessage.Headers["ExceptionStackTrace"] = ex.StackTrace;
-                propsMessage.Headers["ExceptionInnerException"] = ex.InnerException?.ToString();
+                propsMessage.Headers["ExceptionMessage"] = ex?.Message;
+                propsMessage.Headers["ExceptionStackTrace"] = ex?.StackTrace;
+                propsMessage.Headers["ExceptionInnerException"] = ex?.InnerException?.ToString();
                 propsMessage.Headers["Date"] = DateTime.UtcNow.ToString(DateHelper.DefaultFormat);
             }
 
@@ -148,6 +148,6 @@ namespace Common.Core.Bus.RabbitMq
             propsMessage.Headers["x-total-retry-count"] = totalRetryCount;
 
             return propsMessage.Priority <= 3 ? ERetryType.Resend : ERetryType.Reject;
-        } 
+        }
     }
 }

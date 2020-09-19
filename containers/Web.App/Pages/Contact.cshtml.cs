@@ -6,7 +6,6 @@ namespace Web.App
     {
         public void OnGet()
         {
-
         }
     }
 }

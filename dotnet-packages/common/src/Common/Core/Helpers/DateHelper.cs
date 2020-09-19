@@ -8,7 +8,7 @@ namespace Common.Core.Helpers
     {
         public const string DefaultFormat = "yyyy-MM-dd HH:mm:ss";
 
-        public static TimeZoneInfo BrazilTimeZone = GetBrazilTimeZone();
+        public static TimeZoneInfo BrazilTimeZone => GetBrazilTimeZone();
 
         [ExcludeFromCodeCoverage]
         private static TimeZoneInfo GetBrazilTimeZone()

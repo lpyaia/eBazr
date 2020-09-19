@@ -1,12 +1,12 @@
-﻿using Web.App.ApiCollection.Infrastructure;
-using Web.App.ApiCollection.Interfaces;
-using Web.App.Models;
-using Web.App.Settings;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Web.App.ApiCollection.Infrastructure;
+using Web.App.ApiCollection.Interfaces;
+using Web.App.Models;
+using Web.App.Settings;
 
 namespace Web.App.ApiCollection
 {
@@ -53,14 +53,14 @@ namespace Web.App.ApiCollection
             return await SendRequest<IEnumerable<CatalogModel>>(message);
         }
 
-        public async Task<CatalogModel> CreateCatalog(CatalogModel catalogModel)
+        public async Task<CatalogModel> CreateCatalog(CatalogModel model)
         {
             var message = new HttpRequestBuilder(_settings.BaseAddress)
-                                .SetPath(_settings.CatalogPath)                                
+                                .SetPath(_settings.CatalogPath)
                                 .HttpMethod(HttpMethod.Post)
                                 .GetHttpMessage();
 
-            var json = JsonConvert.SerializeObject(catalogModel);
+            var json = JsonConvert.SerializeObject(model);
             message.Content = new StringContent(json, Encoding.UTF8, "application/json");
 
             return await SendRequest<CatalogModel>(message);

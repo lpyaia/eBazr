@@ -54,3 +54,5 @@
 *.config
 *.v2
 /.vs
+/bin/Debug
+/obj

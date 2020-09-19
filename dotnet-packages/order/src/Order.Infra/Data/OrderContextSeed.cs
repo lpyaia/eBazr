@@ -1,6 +1,5 @@
 ﻿using Common.Core.Logging;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +9,10 @@ namespace Order.Infra.Data
 {
     public class OrderContextSeed
     {
+        protected OrderContextSeed()
+        {
+        }
+
         public static async Task SeedAsync(OrderContext orderContext, int? retry = 0)
         {
             int retryForAvailability = retry.Value;

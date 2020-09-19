@@ -17,14 +17,14 @@ namespace Order.Consumer
     {
         protected override void RegisterService(IServiceCollection services, IConfiguration config)
         {
-            BootStrapper.RegisterServices(services, config);
+            BootStrapper.RegisterServices(services);
 
             #region SqlServer Dependencies
 
             services.AddDbContext<OrderContext>(c =>
                 c.UseSqlServer(config.GetConnectionString(ConnectionStringNames.Sql)));
 
-            #endregion
+            #endregion SqlServer Dependencies
 
             #region Project Dependencies
 
@@ -32,7 +32,7 @@ namespace Order.Consumer
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<BasketCheckoutConsumer>();
 
-            #endregion
+            #endregion Project Dependencies
 
             services.Configure<RabbitSettings>(x => config.GetSection(nameof(RabbitSettings)));
 

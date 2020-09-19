@@ -1,20 +1,18 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
 using System.Threading.Tasks;
 using Web.App.ApiCollection.Interfaces;
 using Web.App.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Web.App
 {
     public class CheckOutModel : PageModel
     {
-        private readonly ICatalogApi _catalogApi;
         private readonly IBasketApi _basketApi;
 
-        public CheckOutModel(ICatalogApi catalogApi, IBasketApi basketApi)
+        public CheckOutModel(IBasketApi basketApi)
         {
-            _catalogApi = catalogApi ?? throw new ArgumentNullException(nameof(catalogApi));
             _basketApi = basketApi ?? throw new ArgumentNullException(nameof(basketApi));
         }
 
@@ -27,7 +25,7 @@ namespace Web.App
         {
             var userName = "swn";
             Cart = await _basketApi.GetBasket(userName);
-            
+
             return Page();
         }
 
@@ -45,7 +43,7 @@ namespace Web.App
             Order.TotalPrice = Cart.TotalPrice;
 
             await _basketApi.CheckoutBasket(Order);
-                        
+
             return RedirectToPage("Confirmation", "OrderSubmitted");
         }
     }

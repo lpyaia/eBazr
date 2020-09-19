@@ -1,12 +1,11 @@
-﻿using Web.App.ApiCollection.Infrastructure;
-using Web.App.ApiCollection.Interfaces;
-using Web.App.Models;
-using Web.App.Settings;
-using Newtonsoft.Json;
-using System;
+﻿using Newtonsoft.Json;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Web.App.ApiCollection.Infrastructure;
+using Web.App.ApiCollection.Interfaces;
+using Web.App.Models;
+using Web.App.Settings;
 
 namespace Web.App.ApiCollection
 {

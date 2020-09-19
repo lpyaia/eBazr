@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Web.App.ApiCollection.Interfaces;
 using Web.App.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Web.App
 {
@@ -23,7 +23,6 @@ namespace Web.App
         public IEnumerable<string> CategoryList { get; set; } = new List<string>();
         public IEnumerable<CatalogModel> ProductList { get; set; } = new List<CatalogModel>();
 
-
         [BindProperty(SupportsGet = true)]
         public string SelectedCategory { get; set; }
 
@@ -31,11 +30,11 @@ namespace Web.App
         {
             var productList = await _catalogApi.GetCatalog();
 
-            CategoryList = productList.Select(p => p.Category).Distinct();            
+            CategoryList = productList.Select(p => p.Category).Distinct();
 
             if (!string.IsNullOrWhiteSpace(categoryName))
             {
-                ProductList = productList.Where(p => p.Category == categoryName);                
+                ProductList = productList.Where(p => p.Category == categoryName);
                 SelectedCategory = categoryName;
             }
             else
@@ -62,7 +61,7 @@ namespace Web.App
                 Color = "Black"
             });
 
-            var basketUpdated = await _basketApi.UpdateBasket(basket);
+            await _basketApi.UpdateBasket(basket);
 
             return RedirectToPage("Cart");
         }

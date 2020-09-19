@@ -17,8 +17,8 @@ namespace Basket.Domain.CommandSide.CommandHandlers
         private readonly IBusPublisher _publisher;
         private readonly IMapper _mapper;
 
-        public CheckoutCommandHandler(IBasketRepository repository, 
-            IBusPublisher publisher, 
+        public CheckoutCommandHandler(IBasketRepository repository,
+            IBusPublisher publisher,
             IMapper mapper)
         {
             _repository = repository;
@@ -36,7 +36,7 @@ namespace Basket.Domain.CommandSide.CommandHandlers
             }
 
             var basketRemoved = await _repository.DeleteBasket(request.BasketCheckout.UserName);
-            
+
             if (!basketRemoved)
             {
                 LogHelper.Error("Basket can not deleted");

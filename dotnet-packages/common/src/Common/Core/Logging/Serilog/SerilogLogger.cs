@@ -1,5 +1,4 @@
 ﻿using Common.Core.Config;
-using Microsoft.Extensions.Configuration;
 using Serilog;
 using Serilog.Core;
 using Serilog.Debugging;
@@ -12,9 +11,9 @@ namespace Common.Core.Logging.Serilog
     {
         private ILogger _logger = null;
 
-        public SerilogLogger(IConfiguration config = null)
+        public SerilogLogger()
         {
-            Configure(config);
+            Configure();
         }
 
         public void Info(string message)
@@ -71,12 +70,12 @@ namespace Common.Core.Logging.Serilog
             return $"[{Configuration.AppName.Get()}] - {message}";
         }
 
-        private void Configure(IConfiguration config)
+        private void Configure()
         {
-            _logger = GetLogger(config);
+            _logger = GetLogger();
         }
 
-        private static ILogger GetLogger(IConfiguration config = null)
+        private static ILogger GetLogger()
         {
             SelfLog.Enable(Console.Out);
 

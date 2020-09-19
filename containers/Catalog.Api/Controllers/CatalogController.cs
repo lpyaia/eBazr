@@ -34,7 +34,6 @@ namespace Catalog.Api.Controllers
         [ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<Product>> GetProduct(string id)
         {
-
             var product = await _mediator.Send(new GetProductQuery { Id = id });
 
             if (product == null)
@@ -75,7 +74,7 @@ namespace Catalog.Api.Controllers
         [ProducesResponseType(typeof(void), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> DeleteProductById(string id)
         {
-            return Ok(await _mediator.Send(new DeleteProductByIdCommand { Id = id}));
+            return Ok(await _mediator.Send(new DeleteProductByIdCommand { Id = id }));
         }
     }
 }

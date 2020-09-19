@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Web.App.ApiCollection.Interfaces;
 using Web.App.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Web.App
 {
@@ -35,7 +35,7 @@ namespace Web.App
             var item = basket.Items.Single(x => x.ProductId == productId);
             basket.Items.Remove(item);
 
-            var basketUpdated = await _basketApi.UpdateBasket(basket);
+            await _basketApi.UpdateBasket(basket);
 
             return RedirectToPage();
         }

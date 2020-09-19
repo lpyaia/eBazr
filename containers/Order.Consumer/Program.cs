@@ -15,7 +15,6 @@ namespace Order.Consumer
     {
         protected Program()
         {
-
         }
 
         public static async Task<int> Main()

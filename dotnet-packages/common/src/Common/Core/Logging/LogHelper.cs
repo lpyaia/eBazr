@@ -14,7 +14,7 @@ namespace Common.Core.Logging
             {
                 lock (Lock)
                 {
-                    return _logger ?? (_logger = new SerilogLogger());
+                    return _logger ??= new SerilogLogger();
                 }
             }
             set

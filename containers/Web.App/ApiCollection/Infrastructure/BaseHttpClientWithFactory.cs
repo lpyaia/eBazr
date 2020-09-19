@@ -13,7 +13,7 @@ namespace Web.App.ApiCollection.Infrastructure
         public Uri BaseAddress { get; set; }
         public string BasePath { get; set; }
 
-        public BaseHttpClientWithFactory(IHttpClientFactory factory) => _factory = factory;
+        protected BaseHttpClientWithFactory(IHttpClientFactory factory) => _factory = factory;
 
         private HttpClient GetHttpClient()
         {
@@ -42,6 +42,6 @@ namespace Web.App.ApiCollection.Infrastructure
         {
             // Make default the JSON
             return new List<MediaTypeFormatter> { new JsonMediaTypeFormatter() };
-        }        
+        }
     }
 }

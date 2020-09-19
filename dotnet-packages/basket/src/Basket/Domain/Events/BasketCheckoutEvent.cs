@@ -1,5 +1,4 @@
 ﻿using Common.Core.Bus;
-using System;
 
 namespace Basket.Domain.Events
 {
@@ -10,6 +9,7 @@ namespace Basket.Domain.Events
 
         // BillingAddress
         public string FirstName { get; set; }
+
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
         public string AddressLine { get; set; }
@@ -19,6 +19,7 @@ namespace Basket.Domain.Events
 
         // Payment
         public string CardName { get; set; }
+
         public string CardNumber { get; set; }
         public string Expiration { get; set; }
         public string CVV { get; set; }

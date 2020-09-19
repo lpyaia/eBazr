@@ -1,6 +1,6 @@
-﻿using Web.App.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Web.App.Models;
 
 namespace Web.App.ApiCollection.Interfaces
 {

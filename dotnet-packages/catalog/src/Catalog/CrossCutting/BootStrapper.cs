@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Common.Core.Common;
+using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MediatR;
 
 namespace Catalog.CrossCutting
 {

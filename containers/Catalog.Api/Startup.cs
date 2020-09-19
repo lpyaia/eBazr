@@ -37,14 +37,14 @@ namespace Catalog.Api
             services.AddSingleton<ICatalogDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<CatalogDatabaseSettings>>().Value);
 
-            #endregion
+            #endregion Configuration Dependencies
 
             #region Project Dependencies
 
             services.AddTransient<ICatalogContext, CatalogContext>();
             services.AddTransient<IProductRepository, ProductRepository>();
 
-            #endregion
+            #endregion Project Dependencies
 
             #region Swagger Dependencies
 
@@ -53,8 +53,7 @@ namespace Catalog.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Catalog API", Version = "v1" });
             });
 
-            #endregion
-
+            #endregion Swagger Dependencies
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

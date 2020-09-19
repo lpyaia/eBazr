@@ -10,7 +10,6 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
     <link href="~/css/style.css" rel="stylesheet" type="text/css">
-
 </head>
 <body>
     <header>
@@ -29,7 +28,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-page="/Product">Product</a>
-                        </li>                        
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-page="/Cart">Cart</a>
                         </li>
@@ -58,8 +57,6 @@
                 </div>
             </div>
         </nav>
-
-
     </header>
 
     <div class="container">
@@ -67,7 +64,6 @@
             @RenderBody()
         </main>
     </div>
-
 
     <!-- Footer -->
     <footer class="text-light">
@@ -168,11 +164,8 @@
           });
         }, false);
         })();
-
     </script>
 
     @RenderSection("Scripts", required: false)
 </body>
 </html>
-
-

@@ -1,5 +1,5 @@
-﻿using FluentAssertions.Common;
-using Common.Core.Helpers;
+﻿using Common.Core.Helpers;
+using FluentAssertions.Common;
 using System;
 
 namespace Common.Core.Extensions

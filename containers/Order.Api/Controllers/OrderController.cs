@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Order.Domain.CommandSide.Commands;
 using Order.Domain.QuerySide.Queries;
 using Order.Domain.Responses;
@@ -16,12 +15,10 @@ namespace Ordering.API.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly ILogger<OrderController> _logger;
 
-        public OrderController(IMediator mediator, ILogger<OrderController> logger)
+        public OrderController(IMediator mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         [HttpGet]

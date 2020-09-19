@@ -6,7 +6,7 @@ namespace Web.App.ApiCollection.Infrastructure
     public class ApiBuilder
     {
         private readonly string _fullUrl;
-        private UriBuilder _builder;
+        private readonly UriBuilder _builder;
 
         public ApiBuilder(string url)
         {

@@ -1,14 +1,17 @@
 ﻿using AutoMapper;
 using Common.Core.Common;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Order.CrossCutting
 {
     public class BootStrapper
     {
-        public static void RegisterServices(IServiceCollection services, IConfiguration config)
+        protected BootStrapper()
+        {
+        }
+
+        public static void RegisterServices(IServiceCollection services)
         {
             // Infra
             services.AddMediatR(typeof(BootStrapper));

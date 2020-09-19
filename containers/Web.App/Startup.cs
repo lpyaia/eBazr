@@ -1,12 +1,12 @@
-using Web.App.ApiCollection;
-using Web.App.ApiCollection.Interfaces;
-using Web.App.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using Web.App.ApiCollection;
+using Web.App.ApiCollection.Interfaces;
+using Web.App.Settings;
 
 namespace Web.App
 {
@@ -28,7 +28,7 @@ namespace Web.App
 
             services.AddSingleton<IApiSettings>(sp => sp.GetRequiredService<IOptions<ApiSettings>>().Value);
 
-            #endregion
+            #endregion Configuration Dependencies
 
             #region Project Dependencies
 
@@ -40,7 +40,7 @@ namespace Web.App
             services.AddTransient<IBasketApi, BasketApi>();
             services.AddTransient<IOrderApi, OrderApi>();
 
-            #endregion
+            #endregion Project Dependencies
 
             services.AddRazorPages();
         }

@@ -1,5 +1,4 @@
-﻿using Catalog.Domain.Entities;
-using MediatR;
+﻿using MediatR;
 
 namespace Catalog.Domain.CommandSide.Commands
 {

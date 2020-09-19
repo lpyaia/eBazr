@@ -37,8 +37,8 @@ namespace Common.Core.Bus.Consumer
                 await _bus.ReceiveAsync(group.Key.QueueName, group.Key.ExchangeName, group.Key.Topic, async (message) =>
                 {
                     var consumer = groupConsumers.FirstOrDefault(x => x.ContentName == message.ContentName);
-                    
-                    if (consumer == null) throw new Exception("Consumer not found");
+
+                    if (consumer == null) throw new InvalidOperationException("Consumer not found");
 
                     var messageData = JsonConvert.DeserializeObject(message.Body, consumer.MessageType);
 

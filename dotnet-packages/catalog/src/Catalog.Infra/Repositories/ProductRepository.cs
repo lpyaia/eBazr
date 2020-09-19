@@ -56,7 +56,6 @@ namespace Catalog.Infra.Repositories
         public async Task Create(Product product)
         {
             await _context.Products.InsertOneAsync(product);
-
         }
 
         public async Task<bool> Update(Product product)

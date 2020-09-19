@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Web.App.ApiCollection.Interfaces;
 using Web.App.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Web.App.Pages
 {
@@ -43,8 +43,8 @@ namespace Web.App.Pages
                 Color = "Black"
             });
 
-            var basketUpdated = await _basketApi.UpdateBasket(basket);
-            
+            await _basketApi.UpdateBasket(basket);
+
             return RedirectToPage("Cart");
         }
     }

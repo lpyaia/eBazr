@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Common.Core.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using Common.Core.Common;
 
 namespace Common.Core.Extensions
 {

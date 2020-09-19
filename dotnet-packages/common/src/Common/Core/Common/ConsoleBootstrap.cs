@@ -27,7 +27,7 @@ namespace Framework.Core.Common
         private static async Task<int> RunAsync(Action<IServiceCollection, IConfiguration> configure, Func<IServiceProvider, Task> execute)
         {
             var config = Config.Configuration.GetConfiguration();
-            LogHelper.Logger = new SerilogLogger(config);
+            LogHelper.Logger = new SerilogLogger();
 
             try
             {

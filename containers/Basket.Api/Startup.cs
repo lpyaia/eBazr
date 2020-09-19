@@ -33,10 +33,12 @@ namespace Basket.Api
             BootStrapper.RegisterServices(services, Configuration);
 
             #region Rabbit
+
             services.AddSingleton<IBusPublisher, BusPublisher>();
-            services.AddSingleton<IBusConnection>(x => 
+            services.AddSingleton<IBusConnection>(x =>
                 new BusConnection(Configuration.GetConnectionString(ConnectionStringNames.Rabbit)));
-            #endregion
+
+            #endregion Rabbit
 
             #region Redis Dependencies
 
@@ -46,13 +48,14 @@ namespace Basket.Api
                 return ConnectionMultiplexer.Connect(configuration);
             });
 
-            #endregion
+            #endregion Redis Dependencies
 
             #region Project Dependencies
 
             services.AddTransient<IBasketContext, BasketContext>();
             services.AddTransient<IBasketRepository, BasketRepository>();
-            #endregion
+
+            #endregion Project Dependencies
 
             #region Swagger Dependencies
 
@@ -61,7 +64,7 @@ namespace Basket.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Basket API", Version = "v1" });
             });
 
-            #endregion
+            #endregion Swagger Dependencies
 
             #region RabbitMQ Dependencies
 
@@ -72,10 +75,9 @@ namespace Basket.Api
                 var settings = x.GetRequiredService<IOptionsMonitor<RabbitSettings>>().CurrentValue;
                 return new BusClient(settings.Url);
             });
-            #endregion     
+            #endregion RabbitMQ Dependencies
 
-
-            services.AddControllers();       
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

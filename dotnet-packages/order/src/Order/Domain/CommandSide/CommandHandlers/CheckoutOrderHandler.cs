@@ -24,7 +24,7 @@ namespace Order.Domain.CommandSide.CommandHandlers
             var orderEntity = OrderMapper.Mapper.Map<Entity.Order>(request);
 
             if (orderEntity == null)
-                throw new ApplicationException($"Entity could not be mapped.");
+                throw new InvalidOperationException($"Entity could not be mapped.");
 
             var newOrder = await _orderRepository.AddAsync(orderEntity);
 

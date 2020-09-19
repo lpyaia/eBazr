@@ -6,6 +6,10 @@ namespace Catalog.Infra.Data
 {
     public class CatalogContextSeed
     {
+        protected CatalogContextSeed()
+        {
+        }
+
         public static void SeedData(IMongoCollection<Product> productCollection)
         {
             bool existProduct = productCollection.Find(p => true).Any();

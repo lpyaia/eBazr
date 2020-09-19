@@ -25,7 +25,7 @@ namespace Order.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            BootStrapper.RegisterServices(services, Configuration);
+            BootStrapper.RegisterServices(services);
 
             services.AddControllers();
 
@@ -35,7 +35,7 @@ namespace Order.Api
             services.AddDbContext<OrderContext>(c =>
                 c.UseSqlServer(Configuration.GetConnectionString("OrderConnection")));
 
-            #endregion
+            #endregion SqlServer Dependencies
 
             #region Project Dependencies
 
@@ -43,8 +43,8 @@ namespace Order.Api
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(IOrderRepository), typeof(OrderRepository));
             services.AddTransient<IOrderRepository, OrderRepository>(); // we made transient this in order to resolve in mediatR when consuming Rabbit
-            
-            #endregion
+
+            #endregion Project Dependencies
 
             #region Swagger Dependencies
 
@@ -53,7 +53,7 @@ namespace Order.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Order API", Version = "v1" });
             });
 
-            #endregion
+            #endregion Swagger Dependencies
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

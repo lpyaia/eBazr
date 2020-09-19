@@ -1,10 +1,10 @@
-﻿using Web.App.ApiCollection.Infrastructure;
+﻿using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Web.App.ApiCollection.Infrastructure;
 using Web.App.ApiCollection.Interfaces;
 using Web.App.Models;
 using Web.App.Settings;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace Web.App.ApiCollection
 {
